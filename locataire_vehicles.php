@@ -48,7 +48,9 @@ try {
     <?php if ($message): ?>
         <div class="alert alert-info"><?php echo $message; ?></div>
     <?php endif; ?>
-    <a href="add_listing.php">Add New Vehicle</a>
+    <?php if (isset($_SESSION['user_id'])): ?>
+        <a href="add_listing.php">Add New Vehicle</a>
+    <?php endif; ?>
     <?php if (count($vehicles) === 0): ?>
         <p>You have no vehicles listed.</p>
     <?php else: ?>

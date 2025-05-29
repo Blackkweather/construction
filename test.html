@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport Mensuel des Ventes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .dashboard {
+            width: 380px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            padding: 20px;
+            background-color: #25D366;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+            color: #25D366;
+            font-size: 20px;
+        }
+        .month-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .month-stats {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f0f2f5;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-value {
+            font-weight: bold;
+            font-size: 16px;
+            color: #25D366;
+        }
+        .transaction-day {
+            padding: 15px;
+            border-bottom: 1px solid #e9edef;
+        }
+        .day-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .transaction-item {
+            margin-left: 15px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .amount {
+            font-weight: bold;
+        }
+        .positive {
+            color: #25D366;
+        }
+        .negative {
+            color: #ff4d4d;
+        }
+        .footer {
+            padding: 15px;
+            text-align: center;
+            color: #667781;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">OM</div>
+            <div class="month-title">MAI 2023</div>
+            <div>Rapport Mensuel des Ventes</div>
+        </div>
+        
+        <div class="month-stats">
+            <div class="stat-item">
+                <div>Total Ventes</div>
+                <div class="stat-value">24,850MAD</div>
+            </div>
+            <div class="stat-item">
+                <div>Commandes</div>
+                <div class="stat-value">186</div>
+            </div>
+            <div class="stat-item">
+                <div>Moyenne/Jour</div>
+                <div class="stat-value">828MAD</div>
+            </div>
+        </div>
+        
+        <!-- Jour 1 -->
+        <div class="transaction-day">
+            <div class="day-header">
+                <span>1 mai 2023</span>
+                <span>8 commandes</span>
+            </div>
+            <div class="transaction-item">
+                <span>Ventes totales</span>
+                <span class="amount positive">1,250MAD</span>
+            </div>
+            <div class="transaction-item">
+                <span>Bénéfice net</span>
+                <span class="amount positive">950MAD</span>
+            </div>
+        </div>
+        
+        <!-- Jour 2 -->
+        <div class="transaction-day">
+            <div class="day-header">
+                <span>2 mai 2023</span>
+                <span>12 commandes</span>
+            </div>
+            <div class="transaction-item">
+                <span>Ventes totales</span>
+                <span class="amount positive">1,850MAD</span>
+            </div>
+            <div class="transaction-item">
+                <span>Bénéfice net</span>
+                <span class="amount positive">1,420MAD</span>
+            </div>
+        </div>
+        
+        <!-- Jour 3 -->
+        <div class="transaction-day">
+            <div class="day-header">
+                <span>3 mai 2023</span>
+                <span>5 commandes</span>
+            </div>
+            <div class="transaction-item">
+                <span>Ventes totales</span>
+                <span class="amount positive">780MAD</span>
+            </div>
+            <div class="transaction-item">
+                <span>Bénéfice net</span>
+                <span class="amount positive">620MAD</span>
+            </div>
+        </div>
+        
+        <!-- Jour 4 -->
+        <div class="transaction-day">
+            <div class="day-header">
+                <span>4 mai 2023</span>
+                <span>15 commandes</span>
+            </div>
+            <div class="transaction-item">
+                <span>Ventes totales</span>
+                <span class="amount positive">2,450MAD</span>
+            </div>
+            <div class="transaction-item">
+                <span>Bénéfice net</span>
+                <span class="amount positive">1,920MAD</span>
+            </div>
+        </div>
+        
+        <!-- Jour 5 -->
+        <div class="transaction-day">
+            <div class="day-header">
+                <span>5 mai 2023</span>
+                <span>9 commandes</span>
+            </div>
+            <div class="transaction-item">
+                <span>Ventes totales</span>
+                <span class="amount positive">1,380MAD</span>
+            </div>
+            <div class="transaction-item">
+                <span>Bénéfice net</span>
+                <span class="amount positive">1,050MAD</span>
+            </div>
+        </div>
+        
+        <!-- Jour 6 -->
+        <div class="transaction-day">
+            <div class="day-header">
+                <span>6 mai 2023</span>
+                <span>18 commandes</span>
+            </div>
+            <div class="transaction-item">
+                <span>Ventes totales</span>
+                <span class="amount positive">2,950MAD</span>
+            </div>
+            <div class="transaction-item">
+                <span>Bénéfice net</span>
+                <span class="amount positive">2,300MAD</span>
+            </div>
+        </div>
+        
+        <!-- Jour 7 -->
+        <div class="transaction-day">
+            <div class="day-header">
+                <span>7 mai 2023</span>
+                <span>7 commandes</span>
+            </div>
+            <div class="transaction-item">
+                <span>Ventes totales</span>
+                <span class="amount positive">1,120MAD</span>
+            </div>
+            <div class="transaction-item">
+                <span>Bénéfice net</span>
+                <span class="amount positive">850MAD</span>
+            </div>
+        </div>
+        
+        <!-- Ajoutez plus de jours ici... -->
+        
+        <div class="footer">
+            Rapport généré le 29 mai 2023 • © OMAD Ventures
+        </div>
+    </div>
+</body>
+</html>

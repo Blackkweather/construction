@@ -75,6 +75,37 @@ try {
     <title>Gérer les utilisateurs</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <style>
+        /* Stabilize table layout */
+        table.table {
+            table-layout: fixed;
+            width: 100%;
+        }
+        /* Fix button size to prevent shifting */
+        .btn-sm {
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            padding: 0;
+            line-height: 38px;
+            text-align: center;
+        }
+        /* Neutralize hover effects that cause movement */
+        .btn-sm:hover {
+            transform: none;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        /* Consistent cell padding and text handling */
+        .table td, .table th {
+            padding: 8px;
+            vertical-align: middle;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
 </head>
 <body>
     <h1>Gestion des utilisateurs</h1>
@@ -112,53 +143,25 @@ try {
                 <td><?php echo htmlspecialchars($user['nom']); ?></td>
                 <td><?php echo htmlspecialchars($user['email']); ?></td>
                 <td><?php echo htmlspecialchars($user['role']); ?></td>
-            <td>
-                <form method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');" style="display:inline;">
-                    <input type="hidden" name="delete_user_id" value="<?php echo $user['id']; ?>" />
-                    <button type="submit" class="btn btn-danger btn-sm" title="Supprimer"><i class="bi bi-trash"></i></button>
-                </form>
-                <button type="button" class="btn btn-primary btn-sm ms-2" title="Modifier" onclick="showEditForm(<?php echo $user['id']; ?>)"><i class="bi bi-pencil"></i></button>
-
-                <div id="editForm<?php echo $user['id']; ?>" class="edit-form" style="display:none; margin-top:10px;">
-                    <form method="post">
-                        <input type="hidden" name="edit_user_id" value="<?php echo $user['id']; ?>" />
-                        <div class="mb-2">
-                            <label>Nom:</label>
-                            <input type="text" name="nom" value="<?php echo htmlspecialchars($user['nom']); ?>" required class="form-control" />
-                        </div>
-                        <div class="mb-2">
-                            <label>Email:</label>
-                            <input type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required class="form-control" />
-                        </div>
-                        <div class="mb-2">
-                            <label>Rôle:</label>
-                            <select name="role" required class="form-select">
-                                <option value="admin" <?php if ($user['role'] === 'admin') echo 'selected'; ?>>Admin</option>
-                                <option value="client" <?php if ($user['role'] === 'client') echo 'selected'; ?>>Client</option>
-                                <option value="locataire" <?php if ($user['role'] === 'locataire') echo 'selected'; ?>>Locataire</option>
-                            </select>
-                        </div>
-                        <div class="mb-2">
-                            <label>Mot de passe (laisser vide pour ne pas changer):</label>
-                            <input type="password" name="password" class="form-control" />
-                        </div>
-                        <button type="submit" class="btn btn-success btn-sm">Enregistrer</button>
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="hideEditForm(<?php echo $user['id']; ?>)">Annuler</button>
+                <td>
+                    <form method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');" style="display:inline;">
+                        <input type="hidden" name="delete_user_id" value="<?php echo $user['id']; ?>" />
+                        <button type="submit" class="btn btn-danger btn-sm" title="Supprimer"><i class="bi bi-trash"></i></button>
                     </form>
-                </div>
-            </td>
+                    <a href="edit_user.php?id=<?php echo $user['id']; ?>" class="btn btn-primary btn-sm ms-2" title="Modifier"><i class="bi bi-pencil"></i></a>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
     <a href="admin_dashboard.php" class="btn btn-secondary mt-3">Retour au tableau de bord</a>
-<script>
-function showEditForm(userId) {
-    document.getElementById('editForm' + userId).style.display = 'block';
-}
-function hideEditForm(userId) {
-    document.getElementById('editForm' + userId).style.display = 'none';
-}
-</script>
+    <script>
+        function showEditForm(userId) {
+            document.getElementById('editForm' + userId).style.display = 'block';
+        }
+        function hideEditForm(userId) {
+            document.getElementById('editForm' + userId).style.display = 'none';
+        }
+    </script>
 </body>
 </html>
